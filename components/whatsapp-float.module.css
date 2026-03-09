@@ -1,0 +1,90 @@
+.whatsappFloat {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  animation: floatIn 0.6s 1s ease both;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.whatsappFloat a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.45);
+  transition: var(--transition);
+  position: relative;
+}
+
+.whatsappFloat a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 36px rgba(37, 211, 102, 0.6);
+}
+
+.whatsappFloat a::before {
+  content: "Falar no WhatsApp";
+  position: absolute;
+  right: 68px;
+  background: var(--black-card);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.whatsappFloat a:hover::before {
+  opacity: 1;
+}
+
+.whatsappFloat svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+.whatsappPing {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.4);
+  animation: pingRing 2s ease infinite;
+  pointer-events: none;
+}
+
+@keyframes pingRing {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}

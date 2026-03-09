@@ -1,0 +1,80 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 20px;
+  transition: var(--transition);
+}
+
+.scrolled {
+  background: rgba(10, 10, 10, 0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+}
+
+.headerInner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.logo {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.nav a:first-child {
+  color: var(--gold);
+  border: 1.5px solid rgba(201, 168, 76, 0.4);
+}
+
+.nav a:first-child:hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: var(--gold);
+}
+
+.nav a:last-child {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.nav a:last-child:hover {
+  background: var(--gold-light);
+}
+
+@media (max-width: 768px) {
+  .nav a:first-child {
+    display: none;
+  }
+}

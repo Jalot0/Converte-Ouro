@@ -1,0 +1,80 @@
+.section {
+  background: linear-gradient(135deg, #0e0b05, #0A0A0A 60%, #0d0d0d);
+  border-top: 1px solid rgba(201, 168, 76, 0.1);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(201, 168, 76, 0.05), transparent);
+  pointer-events: none;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2px;
+  margin-top: 52px;
+}
+
+.stat {
+  text-align: center;
+  padding: 36px 24px;
+  position: relative;
+}
+
+.stat + .stat::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 25%;
+  bottom: 25%;
+  width: 1px;
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.statNumber {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: var(--grey);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.confiancaNote {
+  text-align: center;
+  margin-top: 52px;
+  font-size: 1.05rem;
+  color: var(--white-dim);
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .stat + .stat::before {
+    display: none;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  .stat {
+    border: 1px solid rgba(201, 168, 76, 0.07);
+  }
+}
