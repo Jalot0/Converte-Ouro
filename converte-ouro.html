@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Converte Ouro – Transforme suas joias em dinheiro hoje</title>
+  <meta name="description" content="Avaliação gratuita, pagamento imediato e atendimento seguro. Compra de ouro e joias usadas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       CSS VARIABLES & RESET
+    ============================================= */
+    :root {
+      --gold:       #C9A84C;
+      --gold-light: #E8C96A;
+      --gold-dark:  #9A7630;
+      --black:      #0A0A0A;
+      --black-soft: #111111;
+      --black-card: #161616;
+      --black-mid:  #1E1E1E;
+      --white:      #FAFAFA;
+      --white-dim:  #E0D9CC;
+      --grey:       #888880;
+      --radius:     12px;
+      --radius-lg:  20px;
+      --shadow:     0 8px 40px rgba(0,0,0,0.5);
+      --glow:       0 0 40px rgba(201,168,76,0.18);
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    h1 { font-size: clamp(2.2rem, 6vw, 4rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+    h3 { font-size: clamp(1.2rem, 2.5vw, 1.7rem); }
+
+    p { font-size: clamp(0.95rem, 1.5vw, 1.05rem); color: var(--white-dim); line-height: 1.75; }
+
+    .gold { color: var(--gold); }
+    .italic { font-style: italic; }
+
+    /* =============================================
+       LAYOUT UTILITIES
+    ============================================= */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section { padding: 80px 0; }
+
+    .section-label {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    .center { text-align: center; }
+    .center .section-sub { margin-left: auto; margin-right: auto; }
+
+    /* =============================================
+       GOLD DIVIDER
+    ============================================= */
+    .divider {
+      width: 56px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      margin: 0 auto 32px;
+      border-radius: 2px;
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.92rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+      background-size: 200% 100%;
+      color: var(--black);
+      box-shadow: 0 4px 24px rgba(201,168,76,0.35);
+    }
+
+    .btn-primary:hover {
+      background-position: 100% 0;
+      box-shadow: 0 6px 36px rgba(201,168,76,0.55);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(201,168,76,0.5);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,76,0.06);
+      transform: translateY(-2px);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* =============================================
+       HEADER
+    ============================================= */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 20px;
+      transition: var(--transition);
+    }
+
+    #header.scrolled {
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+    }
+
+    .header-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--gold); }
+
+    .nav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav a {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .nav a:first-child {
+      color: var(--gold);
+      border: 1.5px solid rgba(201,168,76,0.4);
+    }
+
+    .nav a:first-child:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
+    }
+
+    .nav a:last-child {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .nav a:last-child:hover {
+      background: var(--gold-light);
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 68px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,168,76,0.09) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 20% 70%, rgba(201,168,76,0.05) 0%, transparent 50%),
+        linear-gradient(160deg, #0e0c08 0%, #0A0A0A 50%, #0d0d0d 100%);
+      z-index: 0;
+    }
+
+    /* Decorative diagonal gold line */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55%;
+      height: 120%;
+      background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);
+      border-left: 1px solid rgba(201,168,76,0.08);
+      transform: skewX(-8deg);
+      pointer-events: none;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(to bottom, transparent, var(--black));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 999px;
+      padding: 6px 16px 6px 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero-title {
+      animation: fadeUp 0.7s 0.1s ease both;
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--white-dim);
+      margin-bottom: 32px;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    .hero-checks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .hero-check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--white-dim);
+    }
+
+    .hero-check-icon {
+      width: 22px; height: 22px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 0.7rem;
+    }
+
+    .hero-cta {
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+
+    .hero-visual {
+      position: absolute;
+      right: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 500px;
+      height: 500px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .hero-visual svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes rotateRing {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .ring-anim { animation: rotateRing 18s linear infinite; transform-origin: center; }
+    .ring-anim2 { animation: rotateRing 26s linear infinite reverse; transform-origin: center; }
+
+    /* =============================================
+       HOW IT WORKS — CAROUSEL
+    ============================================= */
+    #como-funciona {
+      background: var(--black-soft);
+      border-top: 1px solid rgba(201,168,76,0.07);
+      border-bottom: 1px solid rgba(201,168,76,0.07);
+    }
+
+    /* Outer wrapper clips overflow */
+    .steps-carousel-wrapper {
+      margin-top: 52px;
+      position: relative;
+    }
+
+    /* Fading edges */
+    .steps-carousel-wrapper::before,
+    .steps-carousel-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .steps-carousel-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, var(--black-soft), transparent);
+    }
+    .steps-carousel-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, var(--black-soft), transparent);
+    }
+
+    .steps-track {
+      display: flex;
+      gap: 24px;
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .steps-track:active { cursor: grabbing; }
+
+    /* Each card — fixed width so they slide */
+    .step {
+      background: var(--black-card);
+      border: 1px solid rgba(201,168,76,0.08);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      position: relative;
+      flex: 0 0 340px;
+      min-width: 0;
+      transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+    }
+
+    .step.active {
+      border-color: rgba(201,168,76,0.35);
+      box-shadow: var(--glow);
+      transform: translateY(-4px);
+    }
+
+    .step-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(201,168,76,0.12);
+      line-height: 1;
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      pointer-events: none;
+    }
+
+    .step-icon {
+      width: 52px; height: 52px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      color: var(--gold);
+    }
+
+    .step-icon svg { width: 26px; height: 26px; }
+
+    .step h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .step p { font-size: 0.92rem; }
+
+    /* Dot indicators */
+    .steps-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .steps-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.2);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 0;
+    }
+
+    .steps-dot.active {
+      background: var(--gold);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* =============================================
+       O QUE COMPRAMOS
+    ============================================= */
+    #o-que-compramos { background: var(--black); }
+
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 680px) {
+      .items-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+
+    .item-card {
+      background: var(--black-card);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: var(--radius);
+      padding: 28px 16px 22px;
+      text-align: center;
+      transition: var(--transition);
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .item-card:hover {
+      border-color: rgba(201,168,76,0.45);
+      background: rgba(201,168,76,0.05);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 30px rgba(201,168,76,0.12);
+    }
+
+    .item-card:hover .item-icon-wrap {
+      background: rgba(201,168,76,0.18);
+      border-color: var(--gold);
+    }
+
+    .item-card:hover .item-icon-wrap svg {
+      stroke: var(--gold-light);
+    }
+
+    .item-icon-wrap {
+      width: 52px; height: 52px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .item-icon-wrap svg {
+      width: 26px; height: 26px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: var(--transition);
+    }
+
+    .item-label {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--white-dim);
+      line-height: 1.3;
+    }
+
+    .items-note {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 1rem;
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    /* =============================================
+       BENEFÍCIOS
+    ============================================= */
+    #beneficios {
+      background: var(--black-soft);
+      border-top: 1px solid rgba(201,168,76,0.07);
+      border-bottom: 1px solid rgba(201,168,76,0.07);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 52px;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .benefit-icon {
+      width: 46px; height: 46px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .benefit-icon svg { width: 22px; height: 22px; }
+
+    .benefit-text h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .benefit-text p { font-size: 0.85rem; color: var(--grey); line-height: 1.5; }
+
+    /* =============================================
+       DEPOIMENTOS
+    ============================================= */
+    #depoimentos { background: var(--black); }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 52px;
+    }
+
+    .testimonial {
+      background: var(--black-card);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: rgba(201,168,76,0.1);
+      position: absolute;
+      top: 10px;
+      right: 22px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonial:hover {
+      border-color: rgba(201,168,76,0.25);
+      transform: translateY(-4px);
+      box-shadow: var(--glow);
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-text {
+      font-size: 0.97rem;
+      color: var(--white-dim);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--black);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .author-city {
+      font-size: 0.78rem;
+      color: var(--grey);
+    }
+
+    /* =============================================
+       CONFIANÇA / STATS
+    ============================================= */
+    #confianca {
+      background: linear-gradient(135deg, #0e0b05, #0A0A0A 60%, #0d0d0d);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #confianca::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(201,168,76,0.05), transparent);
+      pointer-events: none;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2px;
+      margin-top: 52px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 36px 24px;
+      position: relative;
+    }
+
+    .stat + .stat::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 25%; bottom: 25%;
+      width: 1px;
+      background: rgba(201,168,76,0.1);
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--grey);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    .confianca-note {
+      text-align: center;
+      margin-top: 52px;
+      font-size: 1.05rem;
+      color: var(--white-dim);
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* =============================================
+       FAQ
+    ============================================= */
+    #faq { background: var(--black); }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 52px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: var(--black-card);
+      border: 1px solid rgba(201,168,76,0.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+
+    .faq-item.open {
+      border-color: rgba(201,168,76,0.25);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 500;
+      color: var(--white);
+      transition: color var(--transition);
+    }
+
+    .faq-question:hover { color: var(--gold-light); }
+    .faq-item.open .faq-question { color: var(--gold); }
+
+    .faq-icon {
+      width: 28px; height: 28px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+      color: var(--gold);
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--gold);
+      color: var(--black);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer { max-height: 200px; }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 0.92rem;
+      color: var(--white-dim);
+      line-height: 1.75;
+      border-top: 1px solid rgba(201,168,76,0.06);
+      padding-top: 16px;
+    }
+
+    /* =============================================
+       CTA FINAL
+    ============================================= */
+    #cta-final {
+      background:
+        radial-gradient(ellipse 80% 80% at 50% 60%, rgba(201,168,76,0.09) 0%, transparent 70%),
+        linear-gradient(160deg, #0f0c06, #0A0A0A);
+      border-top: 1px solid rgba(201,168,76,0.12);
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    #cta-final .section-title { margin-bottom: 16px; }
+    #cta-final p { margin-bottom: 44px; }
+
+    #cta-final .btn-group { justify-content: center; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--black-soft);
+      border-top: 1px solid rgba(201,168,76,0.07);
+      padding: 32px 20px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--grey);
+      margin-bottom: 0;
+    }
+
+    /* =============================================
+       FLOATING WHATSAPP
+    ============================================= */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      animation: floatIn 0.6s 1s ease both;
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.8); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .whatsapp-float a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 58px; height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .whatsapp-float a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 36px rgba(37,211,102,0.6);
+    }
+
+    .whatsapp-float a::before {
+      content: 'Falar no WhatsApp';
+      position: absolute;
+      right: 68px;
+      background: var(--black-card);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 8px;
+      white-space: nowrap;
+      border: 1px solid rgba(201,168,76,0.15);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .whatsapp-float a:hover::before { opacity: 1; }
+
+    .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+
+    /* Ping ring */
+    .whatsapp-ping {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid rgba(37,211,102,0.4);
+      animation: pingRing 2s ease infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pingRing {
+      0%   { opacity: 1; transform: scale(1); }
+      80%  { opacity: 0; transform: scale(1.6); }
+      100% { opacity: 0; transform: scale(1.6); }
+    }
+
+    /* =============================================
+       SCROLL ANIMATIONS
+    ============================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered children */
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay: 0.05s; }
+    .reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay: 0.15s; }
+    .reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay: 0.25s; }
+    .reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay: 0.35s; }
+    .reveal-stagger.visible > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay: 0.45s; }
+    .reveal-stagger.visible > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay: 0.55s; }
+    .reveal-stagger.visible > *:nth-child(7) { opacity:1; transform:translateY(0); transition-delay: 0.65s; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+
+      #hero { min-height: 100svh; padding-top: 80px; }
+
+      .hero-visual { display: none; }
+
+      .hero-content { max-width: 100%; }
+
+      .btn-group { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+
+      .nav a:first-child { display: none; }
+
+      .stat + .stat::before { display: none; }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+      }
+
+      .stat { border: 1px solid rgba(201,168,76,0.07); }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ==============================
+     HEADER
+============================== -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">CONVERTE <span>OURO</span></a>
+    <nav class="nav">
+      <a href="https://v0-biosite-com-links.vercel.app/" target="_blank" rel="noopener">Avaliar Joia</a>
+      <a href="https://v0-biosite-com-links.vercel.app/" target="_blank" rel="noopener">Encontrar Loja</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ==============================
+     HERO
+============================== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Decorative SVG ring -->
+  <div class="hero-visual" aria-hidden="true">
+    <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="250" cy="250" r="180" stroke="rgba(201,168,76,0.06)" stroke-width="1"/>
+      <circle cx="250" cy="250" r="210" stroke="rgba(201,168,76,0.04)" stroke-width="1"/>
+      <g class="ring-anim">
+        <circle cx="250" cy="250" r="155" stroke="rgba(201,168,76,0.12)" stroke-width="1" stroke-dasharray="8 12"/>
+      </g>
+      <g class="ring-anim2">
+        <circle cx="250" cy="250" r="200" stroke="rgba(201,168,76,0.07)" stroke-width="1" stroke-dasharray="4 20"/>
+      </g>
+      <!-- Diamond shape -->
+      <polygon points="250,80 340,250 250,420 160,250" fill="none" stroke="rgba(201,168,76,0.14)" stroke-width="1"/>
+      <!-- Inner diamond -->
+      <polygon points="250,140 310,250 250,360 190,250" fill="rgba(201,168,76,0.03)" stroke="rgba(201,168,76,0.18)" stroke-width="1"/>
+      <!-- Center circle -->
+      <circle cx="250" cy="250" r="32" fill="rgba(201,168,76,0.08)" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+      <!-- Glow dots on ring -->
+      <circle cx="250" cy="95" r="3" fill="rgba(201,168,76,0.6)"/>
+      <circle cx="405" cy="250" r="3" fill="rgba(201,168,76,0.6)"/>
+      <circle cx="250" cy="405" r="3" fill="rgba(201,168,76,0.6)"/>
+      <circle cx="95" cy="250"  r="3" fill="rgba(201,168,76,0.6)"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Avaliação gratuita e sem compromisso
+      </div>
+
+      <h1 class="hero-title">
+        Transforme suas<br>
+        <em>joias em dinheiro</em><br>
+        hoje.
+      </h1>
+
+      <p class="hero-sub">
+        Avaliação gratuita, pagamento imediato e atendimento seguro.
+      </p>
+
+      <ul class="hero-checks">
+        <li class="hero-check">
+          <span class="hero-check-icon">✓</span>
+          Avaliação justa e transparente
+        </li>
+        <li class="hero-check">
+          <span class="hero-check-icon">✓</span>
+          Pagamento na hora
+        </li>
+        <li class="hero-check">
+          <span class="hero-check-icon">✓</span>
+          Atendimento seguro e sigiloso
+        </li>
+      </ul>
+
+      <div class="btn-group hero-cta">
+        <a href="https://v0-biosite-com-links.vercel.app/"
+           target="_blank" rel="noopener" class="btn btn-primary">
+          <!-- WhatsApp icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Avaliar Minha Joia
+        </a>
+        <a href="https://v0-biosite-com-links.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Encontrar Loja Mais Próxima
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     COMO FUNCIONA
+============================== -->
+<section id="como-funciona" class="section">
+  <div class="container">
+    <div class="center reveal">
+      <span class="section-label">Processo Simples</span>
+      <h2 class="section-title">Como <em class="gold italic">funciona</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Em poucos passos, sua joia vira dinheiro no bolso. Rápido, seguro e sem burocracia.</p>
+    </div>
+
+    <div class="steps-carousel-wrapper reveal">
+      <div class="steps-track" id="stepsTrack">
+
+        <div class="step active">
+          <span class="step-number">01</span>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+            </svg>
+          </div>
+          <h3>Entre em contato</h3>
+          <p>Fale conosco pelo WhatsApp ou visite uma de nossas lojas. Atendemos com hora marcada ou imediatamente.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">02</span>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <h3>Avaliação na sua frente</h3>
+          <p>Nossa equipe especializada avalia a sua joia com total transparência. Você acompanha todo o processo.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">03</span>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <h3>Pagamento imediato</h3>
+          <p>Aceite a proposta e receba o pagamento na hora. Sem espera, sem cheque, sem promessa.</p>
+        </div>
+
+      </div>
+
+      <!-- Dot indicators -->
+      <div class="steps-dots" id="stepsDots">
+        <button class="steps-dot active" data-index="0" aria-label="Passo 1"></button>
+        <button class="steps-dot" data-index="1" aria-label="Passo 2"></button>
+        <button class="steps-dot" data-index="2" aria-label="Passo 3"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     O QUE COMPRAMOS
+============================== -->
+<section id="o-que-compramos" class="section">
+  <div class="container">
+    <div class="center reveal">
+      <span class="section-label">Nosso Interesse</span>
+      <h2 class="section-title">O que <em class="gold italic">compramos</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Compramos todo tipo de joia e ouro, em qualquer estado. Não importa se está quebrado, antigo ou fora de moda.</p>
+    </div>
+
+    <div class="items-grid reveal-stagger">
+
+      <!-- Alianças antigas -->
+      <div class="item-card">
+        <div class="item-icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="4" stroke-opacity="0.4"/></svg>
+        </div>
+        <span class="item-label">Alianças antigas</span>
+      </div>
+
+      <!-- Correntes de ouro -->
+      <div class="item-card">
+        <div class="item-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <span class="item-label">Correntes de ouro</span>
+      </div>
+
+      <!-- Pulseiras -->
+      <div class="item-card">
+        <div class="item-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2" stroke-opacity="0.5"/></svg>
+        </div>
+        <span class="item-label">Pulseiras</span>
+      </div>
+
+      <!-- Brincos -->
+      <div class="item-card">
+        <div class="item-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-5 3.5 2 6L12 14l-5 3.5 2-6L4 8h6z"/></svg>
+        </div>
+        <span class="item-label">Brincos</span>
+      </div>
+
+      <!-- Moedas de ouro -->
+      <div class="item-card">
+        <div class="item-icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5C9.5 8.1 10.6 7 12 7s2.5 1.1 2.5 2.5S13.4 12 12 12s-2.5 1.1-2.5 2.5S10.6 17 12 17"/></svg>
+        </div>
+        <span class="item-label">Moedas de ouro</span>
+      </div>
+
+      <!-- Ouro quebrado -->
+      <div class="item-card">
+        <div class="item-icon-wrap">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <span class="item-label">Ouro quebrado</span>
+      </div>
+
+      <!-- Joias usadas -->
+      <div class="item-card">
+        <div class="item-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="item-label">Joias usadas</span>
+      </div>
+
+    </div>
+
+    <p class="items-note reveal">✦ Mesmo peças antigas ou quebradas podem valer dinheiro. ✦</p>
+  </div>
+</section>
+
+<!-- ==============================
+     BENEFÍCIOS
+============================== -->
+<section id="beneficios" class="section">
+  <div class="container">
+    <div class="center reveal">
+      <span class="section-label">Por que escolher a Converte Ouro</span>
+      <h2 class="section-title">Nossos <em class="gold italic">benefícios</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="benefits-grid reveal-stagger">
+
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+        </div>
+        <div class="benefit-text">
+          <h4>Pagamento imediato</h4>
+          <p>Receba o valor acordado no ato da venda, sem esperas nem parcelas.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <div class="benefit-text">
+          <h4>Avaliação gratuita</h4>
+          <p>Nenhum custo para você avaliar sua joia. Sem compromisso algum.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <div class="benefit-text">
+          <h4>Sem compromisso</h4>
+          <p>Você avalia e decide. Não é obrigado a vender se não gostar da proposta.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+        </div>
+        <div class="benefit-text">
+          <h4>Atendimento sigiloso</h4>
+          <p>Privacidade total. Suas informações e transações são mantidas em sigilo.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="benefit-text">
+          <h4>Empresa confiável</h4>
+          <p>Anos de mercado e milhares de clientes satisfeitos em todo o Brasil.</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div class="benefit-text">
+          <h4>Equipe especializada</h4>
+          <p>Profissionais treinados para oferecer a avaliação mais justa e precisa.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     DEPOIMENTOS
+============================== -->
+<section id="depoimentos" class="section">
+  <div class="container">
+    <div class="center reveal">
+      <span class="section-label">Quem já vendeu</span>
+      <h2 class="section-title">O que nossos <em class="gold italic">clientes dizem</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="testimonials reveal-stagger">
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Fui muito bem atendida e recebi o pagamento na hora. Levei minhas alianças antigas e fiquei super satisfeita com o valor oferecido. Recomendo!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div>
+            <div class="author-name">Mariana S.</div>
+            <div class="author-city">Petrópolis, RJ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Levei algumas joias antigas que estavam guardadas há anos e fiquei surpreso com o valor. Atendimento muito profissional e transparente do início ao fim.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div>
+            <div class="author-name">Roberto M.</div>
+            <div class="author-city">Volta Redonda, RJ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Avaliação rápida e atendimento muito profissional. Me senti segura durante todo o processo. O dinheiro caiu na hora. Com certeza voltarei!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div>
+            <div class="author-name">Ana P.</div>
+            <div class="author-city">Resende, RJ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Tinha um ouro quebrado guardado e achei que não valia nada. A equipe avaliou e ofereceu um ótimo preço. Saí de lá muito feliz e com o dinheiro em mãos.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">C</div>
+          <div>
+            <div class="author-name">Carlos F.</div>
+            <div class="author-city">Angra dos Reis, RJ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Super recomendo! Fui sem saber o que esperar e a equipe me explicou tudo com paciência. Proposta justa e transparente. Ótima empresa!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">L</div>
+          <div>
+            <div class="author-name">Luciana T.</div>
+            <div class="author-city">Barra Mansa, RJ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Processo rápido, sem burocracia e o pessoal muito simpático. Já indiquei para minha família. A melhor opção quando você precisa de dinheiro rápido.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div>
+            <div class="author-name">João V.</div>
+            <div class="author-city">Teresópolis, RJ</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CONFIANÇA / STATS
+============================== -->
+<section id="confianca" class="section">
+  <div class="container">
+    <div class="center reveal">
+      <span class="section-label">Nossa história</span>
+      <h2 class="section-title">Número que <em class="gold italic">falam por nós</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="stats reveal-stagger">
+      <div class="stat">
+        <span class="stat-number" data-target="10">0</span>
+        <span class="stat-label">Anos de experiência</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="15000" data-suffix="+">0</span>
+        <span class="stat-label">Clientes atendidos</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="100" data-suffix="%">0</span>
+        <span class="stat-label">Avaliação transparente</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="5" data-suffix="★">0</span>
+        <span class="stat-label">Nota dos clientes</span>
+      </div>
+    </div>
+
+    <p class="confianca-note reveal">
+      Milhares de clientes já venderam suas joias com segurança na Converte Ouro.
+    </p>
+  </div>
+</section>
+
+<!-- ==============================
+     FAQ
+============================== -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="center reveal">
+      <span class="section-label">Dúvidas frequentes</span>
+      <h2 class="section-title">Perguntas <em class="gold italic">frequentes</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Preciso agendar a avaliação?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Não é necessário agendamento. Você pode visitar nossa loja no horário de funcionamento sem aviso prévio. Mas se preferir, pode entrar em contato pelo WhatsApp para agendar um horário específico.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          A avaliação é gratuita?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Sim, 100% gratuita! Nossa avaliação não tem nenhum custo para você. Levamos sua joia, avaliamos e apresentamos uma proposta — sem cobrar nada por isso.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Vocês compram ouro quebrado?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Sim! Compramos ouro em qualquer estado: quebrado, dobrado, sem par, fora de moda. O que importa é o teor do ouro, não a aparência da peça.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          O pagamento é feito na hora?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Sim! Se você aceitar nossa proposta, o pagamento é realizado imediatamente. Sem espera, sem promessas futuras.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Sou obrigado a vender após a avaliação?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Não. A avaliação não gera nenhuma obrigação de venda. Você pode recusar a proposta e levar sua joia de volta sem nenhum problema.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Como saber se minha joia é ouro?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Geralmente as joias de ouro têm marcações como "750" (18k), "585" (14k) ou "375" (9k) gravadas. Mas se você tiver dúvida, traga a peça — nossa equipe faz a verificação na hora e sem custo.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CTA FINAL
+============================== -->
+<section id="cta-final">
+  <div class="container reveal">
+    <span class="section-label" style="margin-bottom:24px">Não perca tempo</span>
+    <h2 class="section-title" style="margin-bottom:16px">Sua joia parada pode<br><em class="gold italic">virar dinheiro hoje.</em></h2>
+    <p>Entre em contato ou encontre a loja mais próxima de você.</p>
+
+    <div class="btn-group">
+      <a href="https://v0-biosite-com-links.vercel.app/"
+         target="_blank" rel="noopener" class="btn btn-primary" style="font-size:1rem; padding:18px 40px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a href="https://v0-biosite-com-links.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:1rem; padding:18px 40px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Encontrar uma Loja
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     FOOTER
+============================== -->
+<footer>
+  <div class="footer-logo">CONVERTE <span>OURO</span></div>
+  <p>© 2024 Converte Ouro. Todos os direitos reservados.</p>
+</footer>
+
+<!-- ==============================
+     FLOATING WHATSAPP BUTTON
+============================== -->
+<div class="whatsapp-float">
+  <a href="https://v0-biosite-com-links.vercel.app/"
+     target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <div class="whatsapp-ping"></div>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- ==============================
+     JAVASCRIPT
+============================== -->
+<script>
+  /* ---- Sticky header ---- */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  /* ---- Scroll reveal ---- */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+
+  /* ---- Animated counters ---- */
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+    const isLarge = target > 999;
+
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+      el.textContent = isLarge
+        ? current.toLocaleString('pt-BR') + suffix
+        : current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('[data-target]').forEach(animateCounter);
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsSection = document.querySelector('.stats');
+  if (statsSection) counterObserver.observe(statsSection);
+
+  /* ---- FAQ accordion ---- */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ---- Steps Carousel (auto-play + drag) ---- */
+  (function() {
+    const track  = document.getElementById('stepsTrack');
+    const dots   = document.querySelectorAll('.steps-dot');
+    const cards  = track ? track.querySelectorAll('.step') : [];
+    if (!track || !cards.length) return;
+
+    const CARD_WIDTH = () => cards[0].offsetWidth + 24; // gap = 24px
+    let current = 0;
+    let autoTimer = null;
+    let isDragging = false, startX = 0, scrollStart = 0;
+
+    function goTo(index) {
+      current = (index + cards.length) % cards.length;
+
+      // Center the active card
+      const containerW = track.parentElement.offsetWidth;
+      const offset = CARD_WIDTH() * current - (containerW / 2 - cards[0].offsetWidth / 2);
+      track.style.transition = 'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
+      track.style.transform = `translateX(${-Math.max(0, offset)}px)`;
+
+      cards.forEach((c, i) => c.classList.toggle('active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function startAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 3200);
+    }
+
+    // Dot clicks
+    dots.forEach(d => {
+      d.addEventListener('click', () => {
+        goTo(parseInt(d.dataset.index));
+        startAuto();
+      });
+    });
+
+    // Touch / drag
+    track.addEventListener('pointerdown', e => {
+      isDragging = true;
+      startX = e.clientX;
+      track.style.transition = 'none';
+      track.setPointerCapture(e.pointerId);
+      clearInterval(autoTimer);
+    });
+
+    track.addEventListener('pointermove', e => {
+      if (!isDragging) return;
+      const diff = e.clientX - startX;
+      const containerW = track.parentElement.offsetWidth;
+      const offset = CARD_WIDTH() * current - (containerW / 2 - cards[0].offsetWidth / 2);
+      track.style.transform = `translateX(${-Math.max(0, offset) + diff}px)`;
+    });
+
+    track.addEventListener('pointerup', e => {
+      if (!isDragging) return;
+      isDragging = false;
+      const diff = e.clientX - startX;
+      if (diff < -40)      goTo(current + 1);
+      else if (diff > 40)  goTo(current - 1);
+      else                 goTo(current);
+      startAuto();
+    });
+
+    // Init
+    goTo(0);
+    startAuto();
+
+    // Pause on hover
+    track.parentElement.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    track.parentElement.addEventListener('mouseleave', startAuto);
+  })();
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
