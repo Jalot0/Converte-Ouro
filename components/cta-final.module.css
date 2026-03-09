@@ -1,0 +1,16 @@
+.section {
+  background:
+    radial-gradient(ellipse 80% 80% at 50% 60%, rgba(201, 168, 76, 0.09) 0%, transparent 70%),
+    linear-gradient(160deg, #0f0c06, #0A0A0A);
+  border-top: 1px solid rgba(201, 168, 76, 0.12);
+  text-align: center;
+  padding: 100px 0;
+}
+
+.section .section-title {
+  margin-bottom: 16px;
+}
+
+.section p {
+  margin-bottom: 44px;
+}
